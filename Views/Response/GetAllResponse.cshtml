@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DeliveryBookingCllient.Models.ExecutiveResponse>
+
+@{
+    ViewData["Title"] = "GetAllResponse";
+}
+<partial name="_LoginPartial" />
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-center text-warning">Response List</h2>
+
+        <hr />
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<hr />
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestID)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.ResponseID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ResponseID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ResponseID">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@ViewBag.errormsg

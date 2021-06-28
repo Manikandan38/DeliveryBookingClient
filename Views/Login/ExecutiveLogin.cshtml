@@ -1,0 +1,79 @@
+﻿
+@model DeliveryBookingCllient.Models.UserDetail
+
+@{
+    ViewData["Title"] = "Executive Login";
+}
+
+<partial name="_ExecutiveLoginPartial" />
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-center text-warning">Executive Login</h2>
+
+        <hr />
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <form asp-action="ExecutiveLogin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary text-left" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@if (ViewBag.msg != null)
+{
+    <script type="text/javascript">
+                    window.onload = function () {
+                        alert("@ViewBag.msg");
+                    };
+    </script>
+}
+
+<div>
+    @*<a asp-action="Index">Back to List</a>*@
+    @ViewBag.errormsg
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
+
+
+
+
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DeliveryBookingCllient.Models.UserRequest>
+
+@{
+    ViewData["Title"] = "List of Requests";
+    var data = ViewBag.Message;
+}
+<partial name="_UserLoginPartial" />
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-center text-warning">Pending Request List</h2>
+
+        <hr />
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<hr />
+
+@foreach (var item in Model)
+{
+    <h4 class="text-primary">Name: @ViewBag.Username</h4>
+    <h6>RequestID : @Html.DisplayFor(modelItem => item.RequestID)</h6>
+    <h6>Date of Pickup: @Html.DisplayFor(modelItem => item.DTofPickup)</h6>
+    <h6>Weight of Package: @Html.DisplayFor(modelItem => item.WeightOfPackage)</h6>
+    <h6>Address: @Html.DisplayFor(modelItem => item.Address)</h6>
+    <hr />
+}
+
+<h3>@Html.ActionLink("View Executive Responses", "ViewAllResponses", "Response", new { userid = ViewBag.Userid })</h3>
+
+
+
+
+@ViewBag.errormsg
+
+
+
+
+
+
+
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}

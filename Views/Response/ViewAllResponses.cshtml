@@ -1,0 +1,74 @@
+﻿
+@model dynamic
+
+<partial name="_UserLoginPartial" />
+<div class="row">
+    @*<div class="col-md-4">
+
+        </div>*@
+    <div class="col-md-4">
+        <h2 class="text-center text-success">Accepted List</h2>
+
+        <hr />
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<hr />
+
+
+@foreach (RequestAccepted ra in Model.AcceptedList)
+{
+    <h4 class="text-primary">Name: @ViewBag.Username</h4>
+    <h6>Your Executive's Name: @ViewBag.Executivename</h6>
+    <h6>Your Request-ID: @ra.RequestID</h6>
+    <h6>Your Accept-ID: @ra.RejectID</h6>
+    <h6 class="text-success">Status - Accepted!</h6>
+    <br />
+    @Html.ActionLink("Track Delivery", "ViewStatus", "Response", new { reqid = ra.RequestID })
+    <hr />
+
+}
+
+<div class="row">
+    @*<div class="col-md-4">
+
+        </div>*@
+    <div class="col-md-4">
+        <h2 class="text-center text-danger">Rejected List</h2>
+
+        <hr />
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+
+
+@foreach (RequestRejected ra in Model.RejectedList)
+{
+    <h4 class="text-primary">Name: @ViewBag.Username</h4>
+    <h6>Your Executive's Name: @ViewBag.Executivename</h6>
+    <h6>Your Request-ID: @ra.RequestID</h6>
+    <h6>Your ID: @ra.UserID</h6>
+    <h6>Your Accept-ID: @ra.RejectID</h6>
+    <h6 class="text-danger">Status - Rejected!</h6>
+    <hr />
+
+}
+
+
+
+
+
+
+
+
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}

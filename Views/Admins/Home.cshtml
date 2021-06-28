@@ -1,0 +1,111 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    .bdy {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wrapper {
+        display: flex;
+    }
+
+        .wrapper .static-txt {
+            color: black;
+            font-size: 35px;
+            font-weight: 400;
+        }
+
+        .wrapper .dynamic-txts {
+            height: 90px;
+            line-height: 90px;
+            overflow: hidden;
+        }
+
+    .dynamic-txts li {
+        list-style: none;
+        color: black;
+        font-size: 60px;
+        font-weight: 400;
+        position: relative;
+        top: 0;
+        animation: slide 12s steps(4) infinite;
+    }
+
+    @@keyframes slide {
+        100% {
+            top: -360px;
+        }
+    }
+
+    .dynamic-txts li span {
+        position: relative;
+        margin: 5px 0;
+        line-height: 90px;
+    }
+
+        .dynamic-txts li span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: white;
+            /*border-left: 2px solid #FC6D6D;*/
+            animation: typing 3s steps(10) infinite;
+        }
+
+    @@keyframes typing {
+        40%, 60% {
+            left: calc(100% + 30px);
+        }
+
+        100% {
+            left: 0;
+        }
+    }
+</style>
+
+@*<partial name="_LoginPartial" />*@
+
+
+<div class="wrapper bdy">
+    <div class="static-txt">Hello</div>
+    <ul class="dynamic-txts">
+        <li><span>Admin!</span></li>
+        <li><span>User!</span></li>
+        <li><span>Executive!</span></li>
+    </ul>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <h3>
+            <img src="~/Images/admin.png" height="90" width="90" />&ensp; @Html.ActionLink("Admin", "Login", "Login")
+        </h3>
+        <h3>
+            <img src="~/Images/user.png" height="90" width="90" />&ensp; @Html.ActionLink("User", "UserLogin", "Login")
+        </h3>
+        <h3>
+            <img src="~/Images/executive.png" height="90" width="120" />@Html.ActionLink("Executive", "ExecutiveLogin", "Login")
+        </h3>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>

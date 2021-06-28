@@ -1,0 +1,69 @@
+﻿@model DeliveryBookingCllient.Models.DeliveryStatus
+
+@{
+    ViewData["Title"] = "UpdateAcceptedRequests";
+}
+<partial name="_ExecutiveLoginPartial" />
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-center text-warning">Update Accepted Request</h2>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateAcceptedRequests">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DeliveryID" />
+            @*<div class="form-group">
+                    <label asp-for="UserID" class="control-label"></label>
+                    <input asp-for="UserID" class="form-control" />
+                    <span asp-validation-for="UserID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RequestID" class="control-label"></label>
+                    <input asp-for="RequestID" class="form-control" />
+                    <span asp-validation-for="RequestID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExecutiveID" class="control-label"></label>
+                    <input asp-for="ExecutiveID" class="form-control" />
+                    <span asp-validation-for="ExecutiveID" class="text-danger"></span>
+                </div>*@
+
+            <input hidden asp-for="UserID" class="form-control" value="@ViewBag.ra.UserID" />
+            <input hidden asp-for="RequestID" class="form-control" value="@ViewBag.ra.RequestID" />
+            <input hidden asp-for="ExecutiveID" class="form-control" value="@ViewBag.ra.ExecutiveID" />
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Received" /> @Html.DisplayNameFor(model => model.Received)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Shipped" /> @Html.DisplayNameFor(model => model.Shipped)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Delivered" /> @Html.DisplayNameFor(model => model.Delivered)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

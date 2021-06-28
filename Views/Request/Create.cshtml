@@ -1,0 +1,85 @@
+﻿@model DeliveryBookingCllient.Models.UserRequest
+
+@{
+    ViewData["Title"] = "Create";
+    var data = ViewBag.Message;
+}
+<partial name="_UserLoginPartial" />
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-center text-warning">Create Request</h2>
+
+        <hr />
+    </div>
+    <div class="col-md-4 align-content-end">
+        <br />
+        @Html.ActionLink("View my requests", "ListAllRequest", "Request")
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="RequestID" class="control-label"></label>
+            <input asp-for="RequestID" class="form-control" />
+            <span asp-validation-for="RequestID" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="DTofPickup" class="control-label"></label>
+                <input asp-for="DTofPickup" class="form-control" />
+                <span asp-validation-for="DTofPickup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeightOfPackage" class="control-label"></label>
+                <input asp-for="WeightOfPackage" class="form-control" />
+                <span asp-validation-for="WeightOfPackage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" value="@ViewBag.Address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            @*<div class="form-group">
+            <label asp-for="CityID" class="control-label"></label>
+            <input asp-for="CityID" class="form-control" />
+            <span asp-validation-for="CityID" class="text-danger"></span>
+        </div>*@
+
+            <input type="hidden" asp-for="UserID" value="@data.UserID" />
+            <input type="hidden" asp-for="CityID" value="@data.CityID" />
+            <input type="hidden" asp-for="ExecutiveID" value="@ViewBag.Executiveid" />
+
+            @*<div class="form-group">
+            <label asp-for="UserID" class="control-label"></label>
+            <input asp-for="UserID" class="form-control" />
+            <span asp-validation-for="UserID" class="text-danger"></span>
+        </div>*@
+            @*<input type="hidden" asp-for="UserID" />
+        <div class="form-group">
+            <label asp-for="ExecutiveID" class="control-label"></label>
+            <input asp-for="ExecutiveID" class="form-control" />
+            <span asp-validation-for="ExecutiveID" class="text-danger"></span>
+        </div>*@
+            <label class="control-label text-primary" >Executive: @ViewBag.Executivename</label> <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

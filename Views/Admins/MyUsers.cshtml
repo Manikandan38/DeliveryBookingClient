@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<partial name="_LoginPartial" />
+
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+        <h6>
+            <img src="~/Images/user.png" height="90" width="90" />&ensp;&ensp; @Html.ActionLink("View User", "ViewUser", "Admins")
+        </h6>
+        <h6>
+            <img src="~/Images/executive.png" height="90" width="110" />@Html.ActionLink("View Executive", "ViewExecutive", "Admins")
+        </h6>
+        <h6>
+            <img src="~/Images/user.png" height="90" width="90" />&ensp;&ensp; @Html.ActionLink("View User Requests", "ViewUserRequest", "Admins")
+        </h6>
+        <h6>
+            <img src="~/Images/executive.png" height="90" width="110" />@Html.ActionLink("View Executive Response", "ViewExecutiveResponse", "Admins")
+        </h6>
+    </div>
+    <div class="col-md-2">
+        @ViewBag.errrormsg
+    </div>
+</div>

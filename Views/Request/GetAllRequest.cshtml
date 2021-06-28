@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DeliveryBookingCllient.Models.UserRequest>
+
+@{
+    ViewData["Title"] = "GetAllRequest";
+}
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-center text-warning">User Request List</h2>
+
+        <hr />
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<hr />
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DTofPickup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeightOfPackage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CityID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExecutiveID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DTofPickup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeightOfPackage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CityID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExecutiveID)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.RequestID }) |*@
+                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.RequestID })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@ViewBag.errormsg

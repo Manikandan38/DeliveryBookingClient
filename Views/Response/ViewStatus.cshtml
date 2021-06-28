@@ -1,0 +1,46 @@
+﻿
+<partial name="_UserLoginPartial" />
+<h6>Name: @ViewBag.username</h6>
+<h6>Your Executive's name: @ViewBag.executivename</h6>
+<h6>Your Request-ID: @ViewBag.ra.RequestID</h6>
+@if (@ViewBag.ra.Received == true)
+{
+<p></p>  <h6 class="text-success">Received Successfully!</h6>
+}
+else
+{
+<p></p><h6 class="text-danger">On the way to Receive..</h6>
+}
+
+@if (@ViewBag.ra.Shipped == true)
+{
+<p></p><h6 class="text-success">Shipped Successfully!</h6>
+}
+else
+{
+<p></p><h6 class="text-danger">Shippment is under Process..</h6>
+}
+
+@if (@ViewBag.ra.Delivered == true)
+{
+    <p></p><h6 class="text-success">Delivered Successfully!</h6>
+}
+else
+{
+<p></p><h6 class="text-danger">Deliver Soon..</h6>
+}
+
+
+
+
+
+
+
+
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
